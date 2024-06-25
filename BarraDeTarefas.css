@@ -1,0 +1,52 @@
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #0078D7;
+  color: white;
+  padding: 1%;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+
+
+
+
+
+
+        .Menu {
+            position: fixed;
+            bottom: 10%;
+            bottom: -1000px;
+            transition: bottom 0.5s ease-in-out;
+
+
+
+            padding: 20px; 
+			width: 25%; /* Largura do menu */
+            height: 15vh; /* Altura do menu */
+            background: #f2f2f2;
+
+        }
+
+        .Menu:target {
+            bottom: 5%; /* Deslocamento do menu apos clicado */
+        }
+
+        .Menu-close {
+            text-align: right;
+            margin-bottom: 10px;
+			text-decoration:none;
+			
+        }
+
+		.MenuIniciar{
+			color: white;
+			text-decoration:none;
+			}
+		
+
+
+
+	

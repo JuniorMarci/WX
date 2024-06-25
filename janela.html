@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="stylesheet" type="text/css" href="Janelas.css" media="screen" />
+	  <link rel="stylesheet" type="text/css" href="BarraDeTarefas.css" media="screen" />
+    
+</head>
+<body>
+
+
+<div class="window" id="myWindow1" style="display:none">
+    <div class="title-bar" id="myTitleBar1">
+        <span>Janela 1</span>
+        <button onclick="minimizeWindow('myWindow1')">-</button>
+        <button onclick="maximizeWindow()">□</button>
+        <button onclick="closeWindow('myWindow1')">X</button>
+    </div>
+    <div class="content">
+        <p>Conteúdo da Janela 1...</p>
+    </div>
+</div>
+
+<div class="window" id="myWindow2" style="display:none">
+    <div class="title-bar" id="myTitleBar2">
+        <span>Janela 2</span>
+        <button onclick="minimizeWindow('myWindow2')">-</button>
+        <button onclick="maximizeWindow()">□</button>
+        <button onclick="closeWindow('myWindow2')">X</button>
+    </div>
+    <div class="content">
+        <p>Conteúdo da Janela 2...</p>
+    </div>
+</div>
+
+
+<div class="window" id="myWindow3" style="display:none">
+    <div class="title-bar" id="myTitleBar3">
+        <span>Janela 3</span>
+        <button onclick="minimizeWindow('myWindow3')">-</button>
+        <button onclick="maximizeWindow()">□</button>
+        <button onclick="closeWindow('myWindow3')">X</button>
+    </div>
+    <div class="content">
+        
+<iframe src="https://www.example.com" style="width: 100%; height: 100%; border: none;"></iframe>
+		
+    </div>
+</div>
+
+
+
+
+<div class='Menu' id="Menu">
+
+
+    <a href="#" class="Menu-close">X</a>
+
+
+<p><span style="cursor: pointer;" onclick="openWindow('myWindow1')">Item 1</span>
+<p><span style="cursor: pointer;" onclick="openWindow('myWindow2')">Item 2</span>
+<p><span style="cursor: pointer;" onclick="openWindow('myWindow3')">Item 3</span>
+
+
+
+</div>
+
+
+<div id="taskbar">
+<a href="#Menu" class="MenuIniciar">Iniciar</a>
+<span style="opacity: 0">-------</span>
+<div class="JanelasAtivas" id="resultado"></div>
+
+</div>
+
+
+
+
+
+
+<script>
+
+function makeWindowDraggable(windowId) {
+        var isDragging = false,
+            initialMouseX,
+            initialMouseY,
+            initialWindowX,
+            initialWindowY,
+            myWindow = document.getElementById(windowId),
+            myTitleBar = myWindow.querySelector('.title-bar');
+
+        myTitleBar.addEventListener("mousedown", function (e) {
+            isDragging = true;
+            initialMouseX = e.clientX;
+            initialMouseY = e.clientY;
+            initialWindowX = myWindow.offsetLeft;
+            initialWindowY = myWindow.offsetTop;
+
+            document.addEventListener("mousemove", handleMouseMove);
+            document.addEventListener("mouseup", function () {
+                isDragging = false;
+                document.removeEventListener("mousemove", handleMouseMove);
+            });
+        });
+
+        function handleMouseMove(e) {
+            if (isDragging) {
+                var deltaX = e.clientX - initialMouseX;
+                var deltaY = e.clientY - initialMouseY;
+
+                myWindow.style.left = initialWindowX + deltaX + "px";
+                myWindow.style.top = initialWindowY + deltaY + "px";
+            }
+        }
+    }
+
+    // Aplica a lógica de arrastar para cada janela
+    makeWindowDraggable("myWindow1");
+    makeWindowDraggable("myWindow2");
+	makeWindowDraggable("myWindow3");
+	
+</script>
+
+<script src="./AcaoJanelas.js"></script>
+
+<script src="./BarraDeTarefas.js"></script>
+
+<script>
+var divResultado = document.getElementById('resultado');
+divResultado.textContent = JanelasAbertas(Janelas);
+</script>
+
+</body>
+</html>
