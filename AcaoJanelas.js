@@ -11,17 +11,23 @@
     function closeWindow(windowId) {
 	var myWindow = document.getElementById(windowId);
         myWindow.style.display = "none";
-		var temporario = remVal(Janelas,myWindow.textContent);
-		divResultado.textContent = JanelasAbertas(temporario);
+		var novo = remVal(Janelas,myWindow.textContent)
+		var temporario = novo[0];
+		actions.splice(novo[1],1);
+		//divResultado.textContent = JanelasAbertas(temporario);
+		JanelasAbertas(temporario,windowId);
 
     }
 	
 	function openWindow(windowId) {
     var myWindow = document.getElementById(windowId);
     myWindow.style.display = "block";
-	
+	if (Janelas.includes(myWindow.textContent)){}
+	else {
 	Janelas.push(myWindow.textContent);
 	//var Janelas = document.getElementById('resultado').textContent+myWindow.textContent;
-
-	divResultado.textContent = JanelasAbertas(Janelas);
+	actions.push(function() { openWindow(windowId); });
+	//divResultado.textContent = JanelasAbertas(Janelas);
+	JanelasAbertas(Janelas,windowId);
+	}
 }
