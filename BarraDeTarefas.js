@@ -15,6 +15,9 @@ while (divResultado.hasChildNodes()) {
 Janelas.forEach(function(text, index) {
     var button = document.createElement('button');
     button.textContent = text;
+	button.style.color="white";
+	button.style.backgroundColor="transparent";
+	//button.style.cursor="pointer";
     button.onclick = actions[index];
     divResultado.appendChild(button);
 });

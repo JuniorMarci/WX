@@ -13,9 +13,11 @@
 <div class="window" id="myWindow1" style="display:none">
     <div class="title-bar" id="myTitleBar1">
         <span>Janela 1</span>
+		<div class="botoesComando">
         <button onclick="minimizeWindow('myWindow1')">-</button>
-        <button onclick="maximizeWindow()">□</button>
+        <button onclick="maximizeWindow('myWindow1')">□</button>
         <button onclick="closeWindow('myWindow1')">X</button>
+		</div>
     </div>
     <div class="content">
         <p>Conteúdo da Janela 1...</p>
@@ -25,9 +27,11 @@
 <div class="window" id="myWindow2" style="display:none">
     <div class="title-bar" id="myTitleBar2">
         <span>Janela 2</span>
+		<div class="botoesComando">
         <button onclick="minimizeWindow('myWindow2')">-</button>
-        <button onclick="maximizeWindow()">□</button>
+        <button onclick="maximizeWindow('myWindow2')">□</button>
         <button onclick="closeWindow('myWindow2')">X</button>
+		</div>
     </div>
     <div class="content">
         <p>Conteúdo da Janela 2...</p>
@@ -38,9 +42,11 @@
 <div class="window" id="myWindow3" style="display:none">
     <div class="title-bar" id="myTitleBar3">
         <span>Janela 3</span>
+		<div class="botoesComando">
         <button onclick="minimizeWindow('myWindow3')">-</button>
-        <button onclick="maximizeWindow()">□</button>
+        <button onclick="maximizeWindow('myWindow3')">□</button>
         <button onclick="closeWindow('myWindow3')">X</button>
+		</div>
     </div>
     <div class="content">
         
@@ -80,45 +86,7 @@
 
 
 <script>
-
-function makeWindowDraggable(windowId) {
-        var isDragging = false,
-            initialMouseX,
-            initialMouseY,
-            initialWindowX,
-            initialWindowY,
-            myWindow = document.getElementById(windowId),
-            myTitleBar = myWindow.querySelector('.title-bar');
-
-        myTitleBar.addEventListener("mousedown", function (e) {
-            isDragging = true;
-            initialMouseX = e.clientX;
-            initialMouseY = e.clientY;
-            initialWindowX = myWindow.offsetLeft;
-            initialWindowY = myWindow.offsetTop;
-
-            document.addEventListener("mousemove", handleMouseMove);
-            document.addEventListener("mouseup", function () {
-                isDragging = false;
-                document.removeEventListener("mousemove", handleMouseMove);
-            });
-        });
-
-        function handleMouseMove(e) {
-            if (isDragging) {
-                var deltaX = e.clientX - initialMouseX;
-                var deltaY = e.clientY - initialMouseY;
-
-                myWindow.style.left = initialWindowX + deltaX + "px";
-                myWindow.style.top = initialWindowY + deltaY + "px";
-            }
-        }
-    }
-
-    // Aplica a lógica de arrastar para cada janela
-    makeWindowDraggable("myWindow1");
-    makeWindowDraggable("myWindow2");
-	makeWindowDraggable("myWindow3");
+var oi = 0;
 	
 </script>
 
