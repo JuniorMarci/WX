@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="BarraSuperior.css" media="screen" />
+</head>
+
+<body>
+
+<div style="position:fixed; width:100%; "> 
+<div class="BlocoDeNotasBarra" >
+<span style="cursor: pointer;" onclick="location.href='#BlocoDeNotasMenu'">Arquivo</span> |
+<span style="cursor: pointer;" onclick="location.href='#BlocoDeNotasMenu'">Visualizar</span>
+</div>
+
+<div class='BlocoDeNotasMenu' id="BlocoDeNotasMenu">
+
+
+    <a href="#" class="Menu-close">X</a>
+
+
+<p><span style="cursor: pointer;" onclick="openWindow('myWindow1')">Abrir</span>
+<p><span style="cursor: pointer;" onclick="Salvar()">Salvar</span>
+<p><span style="cursor: pointer;" onclick="openWindow('myWindow3')">Fechar</span>
+
+</div>
+</div>
+
+
+<form>
+<textarea rows="100" class="BlocoDeNotasCampo" id="BlocoDeNotasTexto" style="margin-top:10%;">
+</textarea>
+</form>
+
+<script src="./BlocoDeNotasArquivo.js"></script>
+</body>
+</html>

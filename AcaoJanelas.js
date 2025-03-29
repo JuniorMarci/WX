@@ -55,6 +55,7 @@ function bringToFront(id) {
 		if((myWindow.style.height=="99%")*(myWindow.style.width=="99%")){
 		myWindow.style.height = "200px";
 		myWindow.style.width = "300px";
+		myWindow.querySelector('iframe').style.position = "relative";
 		}
 		
 		else {
@@ -62,6 +63,7 @@ function bringToFront(id) {
 		myWindow.style.width = "99%";
 		myWindow.style.left = 0;
 		myWindow.style.top = 0;
+		myWindow.querySelector('iframe').style.position = "absolute";
 		}
     }
 

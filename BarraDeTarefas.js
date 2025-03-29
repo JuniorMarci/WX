@@ -17,6 +17,7 @@ Janelas.forEach(function(text, index) {
     button.textContent = text;
 	button.style.color="white";
 	button.style.backgroundColor="transparent";
+	button.style.fontFamily = "Arial, sans-serif";
 	//button.style.cursor="pointer";
     button.onclick = actions[index];
     divResultado.appendChild(button);
